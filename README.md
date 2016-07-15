@@ -1,4 +1,4 @@
-# Demo Stock Price Widget
+# Stock Price Widget
 A sample widget that demonstrates following:
 
 - Bootstrap inline form
