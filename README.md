@@ -14,6 +14,6 @@ A sample widget that demonstrates following:
 
 ## Installation
 
-1. Go to [`sp_widget_x_stock.xml`](src/sp_widget_x_stock.xml?raw=true) and right click, Save As...
-2. Go to your instance and import the downloaded xml file
-3. Use the designer to add your __Demo Stock Price__ widget into a new or an existing page
+1. Go to [`x-stock.xml`](src/x-stock.xml?raw=true) and right click, Save As...
+2. Go to your instance and import the downloaded xml file using [`x-loader`](https://github.com/service-portal/x-loader)
+3. That's all! View the widget by navigating to yourinstance/$sp.do?id=x-unloader

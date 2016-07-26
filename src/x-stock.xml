@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update><sp_page action="INSERT_OR_UPDATE"><css/><id>x-stock</id><internal>false</internal><public>false</public><roles/><short_description/><sys_class_name>sp_page</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-07-26 22:21:19</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>312b12a6db782a007f3bf5131f96197d</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x-stock</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_page_312b12a6db782a007f3bf5131f96197d</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:21:19</sys_updated_on><title>x-stock</title></sp_page><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>x-stock - Container 1</name><order>1</order><sp_page display_value="x-stock">312b12a6db782a007f3bf5131f96197d</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-07-26 22:21:19</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>b92bd6e6db782a007f3bf5131f961946</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x-stock - Container 1</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_container_b92bd6e6db782a007f3bf5131f961946</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:21:19</sys_updated_on><width>container</width></sp_container><sp_row action="INSERT_OR_UPDATE"><class_name/><order>1</order><sp_column/><sp_container display_value="x-stock - Container 1">b92bd6e6db782a007f3bf5131f961946</sp_container><sys_class_name>sp_row</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-07-26 22:21:42</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>db3b96a6db782a007f3bf5131f961936</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_row_db3b96a6db782a007f3bf5131f961936</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:21:42</sys_updated_on></sp_row><sp_column action="INSERT_OR_UPDATE"><class_name/><order>1</order><size>12</size><size_lg/><size_sm/><size_xs/><sp_row display_value="1">db3b96a6db782a007f3bf5131f961936</sp_row><sys_class_name>sp_column</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-07-26 22:21:42</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>533b96a6db782a007f3bf5131f961937</sys_id><sys_mod_count>0</sys_mod_count><sys_name>1</sys_name><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_column_533b96a6db782a007f3bf5131f961937</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:21:42</sys_updated_on></sp_column><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><short_description/><size>md</size><sp_column display_value="1">533b96a6db782a007f3bf5131f961937</sp_column><sp_widget display_value="x-stock">dc64b091df231200ba13a4836bf263ab</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-07-26 22:24:02</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>2dcb5ae6db782a007f3bf5131f9619fb</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Global" source="global">global</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_instance_2dcb5ae6db782a007f3bf5131f9619fb</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:24:02</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sp_widget action="INSERT_OR_UPDATE"><client_script><![CDATA[function () {
+	var c = this;
+	setResponse(c.data.response);
+	
+	c.getStock = function() {	 
+		c.server.get({symbols: c.data.symbols}).then(function(r) {			
+			setResponse(r.data.response);
+		});	  
+	};
+
+	function setResponse(response) {
+		c.quotes = response.query.results.quote;
+		if (!angular.isArray(c.quotes))
+			c.quotes = [c.quotes];		
+	}
+}]]></client_script><controller_as>c</controller_as><css>.table {
+  width: 20em;
+}
+
+.positive {
+  color: green;
+}
+
+.negative {
+  color: red;
+}
+
+.quote {
+  margin-right: 2em;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+h4, label {
+  color: black;
+}
+</css><data_table>sp_instance</data_table><demo_data/><description/><docs/><field_list/><has_preview>true</has_preview><id>x-stock</id><internal>false</internal><link/><name>x-stock</name><option_schema/><public>true</public><roles/><script><![CDATA[(function() {
+	// keep symbols in a user preference
+	var u = gs.getUser();
+	if (input) 
+		data.symbols = input.symbols;
+	else
+		data.symbols = u.getPreference('sp.symbols') || 'now msft crm wday';
+
+	u.savePreference('sp.symbols', data.symbols);
+	
+	// call out to yahoo, for info see:
+	// https://developer.yahoo.com/yql/console/?q=show%20tables&env=store://datatables.org/alltableswithkeys
+	var q = 'select * from yahoo.finance.quotes where symbol in ("' + data.symbols + '")';
+	var url = "https://query.yahooapis.com/v1/public/yql";
+	var ws = new GlideHTTPRequest(url);
+	ws.addParameter("q", encodeURI(q));
+	ws.addParameter("env", encodeURI("store://datatables.org/alltableswithkeys"));
+	ws.addParameter("format", "json");
+	var resp = ws.get();
+	data.response = JSON.parse(resp.getBody());
+})();]]></script><servicenow>false</servicenow><sys_class_name>sp_widget</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2016-05-21 14:21:24</sys_created_on><sys_customer_update>true</sys_customer_update><sys_id>dc64b091df231200ba13a4836bf263ab</sys_id><sys_mod_count>125</sys_mod_count><sys_name>x-stock</sys_name><sys_package display_value="">adc0a0584fd422008a959a211310c7f1</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Global">global</sys_scope><sys_update_name>sp_widget_dc64b091df231200ba13a4836bf263ab</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2016-07-26 22:23:42</sys_updated_on><template><![CDATA[<div>
+  <form class="form-inline">
+    <label class="control-label" for="symbols">${Symbols}</label>
+    <div class="input-group">
+      <input class="form-control" placeholder="Enter Symbol" ng-model="c.data.symbols">  
+      <span class="input-group-btn">
+        <button type="submit" class="btn btn-primary" ng-click="c.getStock();">${Go}</button>
+      </span>
+    </div>
+  </form>
+
+  <div class="flex-row flex-wrap">
+    <div ng-repeat="q in c.quotes" class="quote">
+      <h4>{{q.symbol}} - {{q.Name}}</h4>
+      <table class="table">
+        <tr><td>Price </td><td>{{q.LastTradePriceOnly}}</td></tr>
+        <tr><td>Change </td><td ng-class="{ 'positive': q.Change.startsWith('+'), 'negative': q.Change.startsWith('-') }">{{q.Change}}, {{q.ChangeinPercent}}</td></tr>
+        <tr><td>Day Range </td><td>{{q.DaysRange}}</td></tr>
+        <tr><td>Volume </td><td>{{q.Volume | number}}</td></tr>
+        <tr><td>Market cap </td><td>{{q.MarketCapitalization}}</td></tr>
+      </table>
+    </div>
+  </div>
+</div>]]></template></sp_widget></record_update>
